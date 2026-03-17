@@ -1,0 +1,69 @@
+{
+  "name": "app-name",
+  "type": "module",
+  "version": "0.0.0",
+  "packageManager": "pnpm@10.30.1",
+  "description": "",
+  "author": "jinghaihan",
+  "license": "MIT",
+  "homepage": "https://github.com/jinghaihan/app-name#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jinghaihan/app-name.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jinghaihan/app-name/issues"
+  },
+  "keywords": [],
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./package.json": "./package.json"
+  },
+  "main": "dist-electron/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && electron-builder",
+    "deps": "taze major -I",
+    "lint": "eslint",
+    "typecheck": "vue-tsc --noEmit",
+    "test": "vitest",
+    "release": "bumpp",
+    "bootstrap": "pnpm install",
+    "prepare": "simple-git-hooks"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "catalog:build",
+    "unplugin-icons": "catalog:build",
+    "vite": "catalog:build",
+    "vite-plugin-electron": "catalog:build",
+    "vite-plugin-electron-renderer": "catalog:build",
+    "bumpp": "catalog:dev",
+    "electron": "catalog:dev",
+    "electron-builder": "catalog:dev",
+    "pncat": "catalog:dev",
+    "simple-git-hooks": "catalog:dev",
+    "taze": "catalog:dev",
+    "tsx": "catalog:dev",
+    "typescript": "catalog:dev",
+    "@unocss/reset": "catalog:frontend",
+    "unocss": "catalog:frontend",
+    "vue": "catalog:frontend",
+    "@octohash/eslint-config": "catalog:lint",
+    "@unocss/eslint-plugin": "catalog:lint",
+    "eslint": "catalog:lint",
+    "lint-staged": "catalog:lint",
+    "vue-tsc": "catalog:lint",
+    "vitest": "catalog:test",
+    "@types/node": "catalog:types"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
+}
